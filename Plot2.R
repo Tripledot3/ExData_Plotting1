@@ -8,12 +8,13 @@ datetime <- strptime(paste(EPC_plot$Date, EPC_plot$Time, sep=" "), "%d/%m/%Y %H:
 #defintely the answer
 
 EPC_plot$Global_active_power <- as.numeric(EPC_plot$Global_active_power)
-#changing the Global active power colunm in the data from the
-#character class to the number class
+#changing the Global active power colunm in the data from the character class to the number class
 
 plot(datetime, EPC_plot$Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
 # creates Plot
 
 dev.copy(png, file = "plot2.png")
+#copying the plot to a png file
 
 dev.off()
+#closing the png file
