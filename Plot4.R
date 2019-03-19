@@ -5,11 +5,10 @@ EPC_plot <- subset(EPC, Date == "1/2/2007" | Date == "2/2/2007")
 #Subetting the days that we want to use
 
 datetime <- strptime(paste(EPC_plot$Date, EPC_plot$Time, sep=" "), "%d/%m/%Y %H:%M:%S") 
-#defintely the answer
+#converting the dataframe to a date in the format that we want to use
 
 EPC_plot$Global_active_power <- as.numeric(EPC_plot$Global_active_power)
-#changing the Global active power colunm in the data from the
-#character class to the number class
+#changing the Global active power colunm in the data from the character class to the number class
 
 par(mfrow = c(2,2))
 # setting the layout/position that the plots will be in
@@ -17,7 +16,7 @@ par(mfrow = c(2,2))
 plot(datetime, EPC_plot$Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
 #ploting the first plot
 plot(datetime, EPC_plot$Voltage, type = "l", xlab = "datetime", ylab = "Voltage")
-#ploting the secound plot
+#ploting the second plot
 
 plot(datetime, EPC_plot$Sub_metering_1, type = "l", xlab = "", ylab = "Energy sub metering")
 lines(datetime, EPC_plot$Sub_metering_2, type = "l", col = "red")
